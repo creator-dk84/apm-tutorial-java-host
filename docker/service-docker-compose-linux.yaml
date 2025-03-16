@@ -16,17 +16,20 @@ services:
     build: 
        context: ../
        dockerfile: notes/dockerfile.notes.maven
+    #logging:
+      #driver: "local"
     ports:
       - 8080:8080
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    extra_hosts:                            # Linux only
+      - "host.docker.internal:host-gateway" # Linux only
     labels:
-      - com.datadoghq.tags.service="notes"
-      - com.datadoghq.tags.env="dev"
-      - com.datadoghq.tags.version="0.0.1"
+      com.datadoghq.tags.service: "notes"
+      com.datadoghq.tags.env: "dev"
+      com.datadoghq.tags.version: "0.0.1"
+      com.datadoghq.ad.logs: '[{"source" :"java", "service": "notes"}]'
     environment:
       - DD_SERVICE=notes
-      - DD_ENV=dev
+      - DD_ENV=dev  
       - DD_VERSION=0.0.1
       - DD_AGENT_HOST=host.docker.internal
     #  - CALENDAR_HOST=host.docker.internal

@@ -17,9 +17,6 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
-
-		<!-- Used for manual tracing below
-
 		<dependency>
 			<groupId>com.datadoghq</groupId>
 			<artifactId>dd-trace-api</artifactId>
@@ -37,9 +34,6 @@
 			<artifactId>opentracing-api</artifactId>
 			<version>0.33.0</version>
 		</dependency>
-		
-		-->
-
 		<dependency>
 			<groupId>com.squareup.okhttp3</groupId>
 			<artifactId>okhttp</artifactId>
